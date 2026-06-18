@@ -1,0 +1,39 @@
+@media print {
+  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+
+  html, body { width: 100%; margin: 0; padding: 0; background: white; }
+
+  .no-print,
+  nav, aside, header, footer,
+  .sidebar, .header, .btn, button { display: none !important; }
+
+  .print-break   { page-break-after: always; }
+  .print-no-break { page-break-inside: avoid; }
+
+  /* ── Barcode print ── */
+  .barcode-print-area { padding: 8mm; }
+  .barcode-grid { display: grid !important; gap: 2mm; }
+  .barcode-item {
+    border: 1px solid #e2e8f0;
+    padding: 3mm;
+    text-align: center;
+    page-break-inside: avoid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .barcode-item svg { max-width: 100%; }
+  .barcode-name  { font-size: 7pt; font-weight: 700; margin-bottom: 1mm; white-space: nowrap; overflow: hidden; }
+  .barcode-sku   { font-size: 6pt; font-family: monospace; color: #64748b; }
+  .barcode-price { font-size: 8pt; font-weight: 900; margin-top: 1mm; }
+
+  /* ── Invoice print ── */
+  .invoice-wrapper { max-width: 210mm; margin: 0 auto; padding: 15mm; font-size: 10pt; }
+  .invoice-table th, .invoice-table td { border: 1px solid #e2e8f0; padding: 6px 10px; }
+  .invoice-table thead th { background: #f8fafc; font-weight: 700; }
+
+  /* ── Thermal receipt (58mm / 80mm) ── */
+  .thermal-receipt { width: 58mm; margin: 0 auto; font-size: 8pt; font-family: monospace; }
+  .thermal-80 { width: 80mm; }
+  .thermal-divider { border-top: 1px dashed #000; margin: 2mm 0; }
+}

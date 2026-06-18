@@ -1,0 +1,40 @@
+version: '3.8'
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:80"
+    environment:
+      - VITE_API_URL=http://backend:5000/api
+    depends_on:
+      - backend
+    networks:
+      - infypos-net
+
+  backend:
+    image: infypos-backend:latest
+    ports:
+      - "5000:5000"
+    environment:
+      - NODE_ENV=production
+      - MONGO_URI=mongodb://mongo:27017/infypos
+    depends_on:
+      - mongo
+    networks:
+      - infypos-net
+
+  mongo:
+    image: mongo:7
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - infypos-net
+
+volumes:
+  mongo-data:
+
+networks:
+  infypos-net:
+    driver: bridge

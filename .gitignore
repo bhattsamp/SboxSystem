@@ -1,0 +1,5 @@
+token.txt
+.claude/settings.local.json
+infypos-backend/.env.dvelopment
+.DS_Store
+Thumbs.db

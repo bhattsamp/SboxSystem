@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Set-Location \"e:\\\\Work\\\\Self Portal\\\\infypos-backend\"; $proc = Start-Process node -ArgumentList \"src/server.js\" -WorkingDirectory \"e:\\\\Work\\\\Self Portal\\\\infypos-backend\" -PassThru; Write-Host \"PID: $\\($proc.Id\\)\"; Start-Sleep -Seconds 4; $token = \\(Invoke-RestMethod -Uri \"http://localhost:5000/api/auth/login\" -Method Post -ContentType \"application/json\" -Body '{\"email\":\"admin@infypos.com\",\"password\":\"123456\"}'\\).data.token; Invoke-RestMethod -Uri \"http://localhost:5000/api/warehouses\" -Method Get -Headers @{ Authorization = \"Bearer $token\" } | ConvertTo-Json -Depth 3)",
+      "Bash(npx tsc *)",
+      "Bash(git -C infypos-backend remote -v)",
+      "Bash(git -C infypos-backend log --oneline -5)",
+      "Bash(git -C infypos-backend status --short)",
+      "Bash(rm -rf infypos-backend/.git && echo \"removed nested .git\")",
+      "Bash(git add *)",
+      "Bash(grep -iE \"token\\\\.txt|settings\\\\.local|\\\\.env$|\\\\.env\\\\.\")",
+      "Bash(git rm *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)"
+    ],
+    "additionalDirectories": [
+      "E:\\Work\\Source\\SboxSystem\\infypos-backend\\.git"
+    ]
+  }
+}

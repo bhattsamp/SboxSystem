@@ -1,0 +1,11 @@
+node_modules/
+.env
+uploads/products/*
+uploads/brands/*
+uploads/settings/*
+!uploads/products/.gitkeep
+!uploads/brands/.gitkeep
+!uploads/settings/.gitkeep
+dist/
+*.log
+.DS_Store
